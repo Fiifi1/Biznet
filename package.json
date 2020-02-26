@@ -1,0 +1,19 @@
+{
+  "name": "biznetmain",
+  "version": "1.0.0",
+  "description": "Locate, buy and get served",
+  "main": "server.js",
+  "scripts": {
+    "test": "start",
+    "start": "node server.js"
+  },
+  "author": "Owirdu&Fiifi",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.17.1"
+  },
+  "dependencies": {
+    "express-http-to-https": "^1.1.4",
+    "node-fetch": "^2.6.0"
+  }
+}

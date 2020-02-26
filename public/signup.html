@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="bg-white">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Products and Services" />
+    <meta name="theme-color" content="#1a75ff" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="./css/styles.min.css" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css" />
+    <link rel="stylesheet" href="./css/custom_styles.css" />
+    <link rel="stylesheet" href="./css/Regisration-Form-With-Photo.css">
+    <meta name="Biznet" content="Products and Services" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1a75ff" />
+    <meta name="apple-mobile-web-app-title" content="BizNet" />
+    <link rel="apple-touch-icon" href="./images/icons/152x152.png" />
+</head>
+
+<body>
+    <div class="baseDiv">
+        <!-- SIDE BAR -->
+        <div class="overlay"></div>
+        <div id="sidebar">
+            <div class="sidebar-header">
+                <div id="close-sidebar"><i class="fa fa-times"></i></div>
+                <h2>MENU</h2>
+            </div>
+            <ul>
+                <li> <a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i> HOME</a></li>
+                <li> <a href="profile.html"><i class="fa fa-user" aria-hidden="true"></i> PROFILE</a></li>
+            </ul>
+            <hr>
+            <p class="text-center"><strong>BUSINESS MANAGER</strong></p>
+            <form method="POST" enctype="text/plain">
+                <h2 class="sr-only">Login Form</h2>
+                <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
+                <div class="form-group"><input class="form-control custom-textfield-1" type="text" name="merchantId"
+                        id="merchantId" placeholder="ID" required></div>
+                <div class="form-group"><button class="btn btn-light btn-block loginButton" type="submit"
+                        id="loginBtn">Log In</button></div>
+                <div class="text-center"><em style="font-size: small">Not Registered? </em><a href="signup.html"
+                        class="forgot"> Sign Up</a></div>
+            </form>
+        </div>
+
+        <!-- SIGN UP PAGE -->
+        <div id="content">
+
+            <!-- HEADER WITH CRUMB BAR -->
+            <nav class="navbar navbar-dark fixed-top">
+                <button class="navbar-toggler nav-button custom-toggler open-sidebar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-text">BizNet</span>
+                    <span><i class="fa fa-spinner fa-spin" style="font-size:24px;"></i></span>
+                </button>
+            </nav>
+
+            <!-- SIGN UP FORM -->
+            <div class="register-photo">
+                <div class="form-container" style="margin-top: 78px; z-index: 0;">
+                    <div class="image-holder"></div>
+                    <form method="POST" enctype="multipart/form-data">
+                        <h2 class="text-center"><strong>Create</strong> an account.</h2>
+                        <div class="form-group"><input class="form-control" type="text" name="tradeName"
+                                placeholder="Business Name" required></div>
+                        <div class="form-group">
+                            Select the type of business:
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons" style="z-index: 0;"
+                                onchange="chgDescPlaceholder()">
+                                <label class="btn btn-light active">
+                                    <input type="radio" name="produceType" id="produceType0" value="0"
+                                        autocomplete="off" checked> Goods
+                                </label>
+                                <label class="btn btn-light">
+                                    <input type="radio" name="produceType" id="produceType1" value="1"
+                                        autocomplete="off"> Services
+                                </label>
+                                <label class="btn btn-light">
+                                    <input type="radio" name="produceType" id="produceType2" value="2"
+                                        autocomplete="off"> Both
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group"><textarea class="form-control" name="description" id="description"
+                                placeholder="Goods Catergories/Description" required></textarea></div>
+                        <hr>
+                        <div class="form-group"><input class="form-control" type="email" name="email"
+                                placeholder="Email" required></div>
+                        <div class="form-group">
+                            <input class="form-control" type="tel" name="phone1" id="phone1"
+                                pattern="\+[0-9]{12}|[0-9]{10}" placeholder="Phone 1" required>
+                            <input class="form-control" type="tel" name="phone2" id="phone2"
+                                pattern="\+[0-9]{12}|[0-9]{10}" placeholder="Phone 2 (Optional)"
+                                style="margin-top: 10px;">
+                            <span style="font-size: small; color: gray">Phone format: +233xxxxxxxxx or 0xxxxxxxxx
+                            </span>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            Select working days:<br>
+                            <textarea class="form-control" id="workingDays" placeholder="Working days"
+                                onclick="showDaysModal()" readonly></textarea>
+                        </div>
+                        <div class="form-group">
+                            Specify working hours:<br>
+                            <label class="">From <input class="form-control" type="time" name="workingHoursFrom"
+                                    id="workingHoursFrom"></label>&nbsp&nbsp
+                            <label>To <input class="form-control" type="time" name="workingHoursTo"
+                                    id="workingHoursTo"></label>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            Add image of the front view of office or shop:<br>
+                            <div class="custom-file" style="z-index: 0;">
+                                <input class="custom-file-input" type="file" name="shopImage" id="customFile" required>
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <button class="form-control btn-info btn-block" type="button" onclick="getCurrentLocation()"
+                                id="getGPSBtn">Get Office/Shop GPS Location</button>
+                            <input class="form-control" type="text" name="latitude" id="latitudeField"
+                                placeholder="Latitude" style="margin-top: 5px;" required>
+                            <input class="form-control" type="text" name="longitude" id="longitudeField"
+                                placeholder="Longitude" style="margin-top: 5px;" required>
+                            <input class="form-control" type="text" name="address" , id="addressField" ,
+                                placeholder="Town, city of village" style="margin-top: 5px;" required>
+                            <div class="form-control" id="map" style="margin-top: 5px; height: 200px; z-index: 0;">
+                            </div>
+                            <div class="alert alert-info" id="gpsAlert" style="margin-top: 5px;"><strong>Note!</strong>
+                                Office/Shop location unavailable.</strong></div>
+                        </div>
+                        <hr>
+                        <div class="form-group"><button class="btn btn-primary btn-block" type="submit"
+                                id="signUpBtn">Sign Up</button></div>
+                        <div class="text-center">You already have an account? <a href="#loginLink" class="open-sidebar"
+                                id="loginLink">Login&nbsphere.</a></div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="daysModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="border: 0px;">
+                        <span style="font-size: 20px;">Select working days</span>
+                        <button type="button" class="close" data-dismiss="modal" id="closeDaysModalBtn"
+                            style="font-weight: bold;">&times;</button>
+                    </div>
+                    <div class="modal-body container">
+                        <hr>
+                        <div class="row daysModalRow">
+                            <div class="custom-control custom-checkbox col-6" style="width: 100%;">
+                                <input type="checkbox" class="custom-control-input" id="sunCheckbox" name="sunday"
+                                    value="Sunday">
+                                <label class="custom-control-label" for="sunCheckbox"
+                                    style="width: 100%;">Sunday</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-6" style="width: 100%;">
+                                <input type="checkbox" class="custom-control-input" id="monCheckbox" name="monday"
+                                    value="Monday">
+                                <label class="custom-control-label" for="monCheckbox"
+                                    style="width: 100%;">Monday</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row daysModalRow">
+                            <div class="custom-control custom-checkbox col-6" style="width: 100%;">
+                                <input type="checkbox" class="custom-control-input" id="tueCheckbox" name="tuesday"
+                                    value="Tuesday">
+                                <label class="custom-control-label" for="tueCheckbox"
+                                    style="width: 100%;">Tuesday</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-6" style="width: 100%;">
+                                <input type="checkbox" class="custom-control-input" id="wedCheckbox" name="wednesday"
+                                    value="Wednesday">
+                                <label class="custom-control-label" for="wedCheckbox"
+                                    style="width: 100%;">Wednesday</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row daysModalRow">
+                            <div class="custom-control custom-checkbox col-6" style="width: 100%;">
+                                <input type="checkbox" class="custom-control-input" id="thuCheckbox" name="thursday"
+                                    value="Thursday">
+                                <label class="custom-control-label" for="thuCheckbox"
+                                    style="width: 100%;">Thursday</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-6" style="width: 100%;">
+                                <input type="checkbox" class="custom-control-input" id="friCheckbox" name="friday"
+                                    value="Friday">
+                                <label class="custom-control-label" for="friCheckbox"
+                                    style="width: 100%;">Friday</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row daysModalRow">
+                            <div class="custom-control custom-checkbox col-6" style="width: 100%;">
+                                <input type="checkbox" class="custom-control-input" id="satCheckbox" name="saturday"
+                                    value="Saturday">
+                                <label class="custom-control-label" for="satCheckbox"
+                                    style="width: 100%;">Saturday</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="form-control btn-primary" type="button" id="daysDoneBtn"
+                            onclick="getSelectedWorkingDays()" style="max-width: 100px; margin: 5px;">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Modal -->
+        <div id="errModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <!-- Error Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="border: 0px;">
+                        <button type="button" class="close" data-dismiss="modal"
+                            style="font-weight: bold;">&times;</button>
+                    </div>
+                    <div class="modal-body container">
+                        <div class="row">
+                            <div class="col-2"><i class="fa fa-lg fa-exclamation-triangle" style="color: red;"></i>
+                            </div>
+                            <div class="col-10" id="errMsg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="./scripts/jquery.touchSwipe.js"></script>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="./scripts/script.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script>
+        // This script makes the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-storage.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-PDt9YY0Pe16UXkQjl6GGddSlLUh5BYE&callback=initDetailsMap"></script>
+    <script src="./js/custom_script.js"></script>
+    <script src="./scripts/db.js"></script>
+
+</body>
+
+</html>

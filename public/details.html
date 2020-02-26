@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="bg-white">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Products and Services" />
+    <meta name="theme-color" content="#1a75ff" />
+    <title>Biznet | Details</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="./css/styles.min.css" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css" />
+    <link rel="stylesheet" href="./css/custom_styles.css" />
+    <meta name="Biznet" content="Products and Services" />
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1a75ff" />
+    <meta name="apple-mobile-web-app-title" content="BizNet" />
+    <link rel="apple-touch-icon" href="./images/icons/152x152.png" />
+</head>
+
+<body onload="loadDetails()">
+    <div class="baseDiv">
+        <!-- SIDE BAR -->
+        <div class="overlay"></div>
+        <div id="sidebar">
+            <div class="sidebar-header">
+                <div id="close-sidebar"><i class="fa fa-times"></i></div>
+                <h2>MENU</h2>
+            </div>
+            <ul>
+                <li> <a href="./index.html"><i class="fa fa-home" aria-hidden="true"></i> HOME</a></li>
+                <li> <a href="./profile.html"><i class="fa fa-user" aria-hidden="true"></i> PROFILE</a></li>
+            </ul>
+            <hr>
+            <p class="text-center"><strong>BUSINESS MANAGER</strong></p>
+            <form method="POST" enctype="text/plain">
+                <h2 class="sr-only">Login Form</h2>
+                <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
+                <div class="form-group"><input class="form-control custom-textfield-1" type="text" name="merchantId"
+                        id="merchantId" placeholder="ID" required></div>
+                <div class="form-group"><button class="btn btn-light btn-block loginButton" type="submit"
+                        id="loginBtn">Log In</button></div>
+                <div class="text-center"><em style="font-size: small">Not Registered? </em><a href="./signup.html"
+                        class="forgot"> Sign Up</a></div>
+            </form>
+        </div>
+
+        <!-- SIGN UP PAGE -->
+        <div id="content">
+
+            <!-- HEADER WITH CRUMB BAR -->
+            <nav class="navbar navbar-dark fixed-top">
+                <button class="navbar-toggler nav-button custom-toggler open-sidebar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-text">BizNet</span>
+                    <span><i class="fa fa-spinner fa-spin" style="font-size:24px;"></i></span>
+                </button>
+            </nav>
+
+            <!-- DETAILS HEADING -->
+            <div class="fixed-top" style="z-index: 8;">
+                <label class="form-control" id="listHeading"><span class="badge badge-info">Details</span></label>
+            </div>
+
+            <!-- DETAILS -->
+            <div class="jumbotron d-flex flex-wrap justify-content-center bg-white" id="detailsContainer">
+                <div class="card cardShadow bg-white" style="width: 100%; max-width: 1000px;">
+                    <div class="row" style="padding: 10px;">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label id="name" style="border: 0px">Business Name</label>
+                            </div>
+                            <div class="form-group">
+                                <label id="type" style="border: 0px">Business Type</label>
+                            </div>
+                            <div class="form-group">
+                                <label id="descr" style="border: 0px">Business Description</label>
+                            </div>
+                            <div class="form-group">
+                                <label id="phone" style="border: 0px">Phone</label>
+                            </div>
+                            <div class="form-group">
+                                <label id="email" style="border: 0px">Email</label>
+                            </div>
+                            <div class="form-group">
+                                <label id="workingHrs" style="border: 0px">Working days (Hours)</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="image" style="border: 0px; text-align: center; width: 100%;">Photo of
+                                    Office/Shop</label>
+                                <img src="./images/no_img.svg" alt="No image" id="image"
+                                    style="border: 0px; width: 100%; max-height: 400px;" data-toggle="modal"
+                                    data-target="#imgModal" onclick="setModalImg();">
+                            </div>
+                            <div class="form-group">
+                                <label id="location" style="border: 0px">Location</label>
+                            </div>
+                            <div class="form-group" id="map"
+                                style="margin-top: 5px; border: 0px; height: 300px; z-index: 0;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Image Modal -->
+        <div id="imgModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg" style="background-color: transparent;">
+                <!-- Image Modal content-->
+                <div class="modal-content" style="background-color: transparent;">
+                    <div class="modal-header" style="border: 0px;">
+                        <button type="button" class="close" data-dismiss="modal"
+                            style="color: white; font-size: xx-large; font-weight: bold;">&times;</button>
+                    </div>
+                    <div class="modal-body" style="background-color: transparent;">
+                        <img src="./images/no_img.svg" alt="photo" width="100%" height="auto" id="modalImage"
+                            style="background-color: transparent;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="./scripts/script.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="./scripts/jquery.touchSwipe.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-storage.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-PDt9YY0Pe16UXkQjl6GGddSlLUh5BYE&callback=initDetailsMap"></script>
+    <script src="./js/custom_script.js"></script>
+    <script src="./scripts/db.js"></script>
+</body>
+
+</html>

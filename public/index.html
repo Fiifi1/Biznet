@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="bg-white">
+
+<head>
+    <title>BizNet</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Products and Services" />
+    <meta name="theme-color" content="#1a75ff" />
+    <meta name="Biznet" content="Products and Services" />
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="./css/custom_styles.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1a75ff" />
+    <meta name="apple-mobile-web-app-title" content="BizNet" />
+    <link rel="apple-touch-icon" href="/images/icons/152x152.png" />
+</head>
+
+<body onload="loadIndexDb()">
+    <div class="baseDiv">
+        <!-- SIDE BAR -->
+        <div class="overlay"></div>
+        <div id="sidebar">
+            <div class="sidebar-header">
+                <div id="close-sidebar"><i class="fa fa-times"></i></div>
+                <h2>MENU</h2>
+            </div>
+            <ul>
+                <li style="border-right:5px solid orange; border-left:5px solid orange"> <a href="index.html"><i
+                            class="fa fa-home" aria-hidden="true"></i> HOME</a></li>
+                <li> <a href="./profile.html"><i class="fa fa-user" aria-hidden="true"></i> PROFILE</a></li>
+            </ul>
+            <hr>
+            <p class="text-center"><strong>BUSINESS MANAGER</strong></p>
+            <form method="POST" enctype="text/plain">
+                <h2 class="sr-only">Login Form</h2>
+                <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
+                <div class="form-group"><input class="form-control custom-textfield-1" type="text" name="merchantId"
+                        id="merchantId" placeholder="ID" required></div>
+                <div class="form-group"><button class="btn btn-light btn-block loginButton" type="submit"
+                        id="merchantId">Log In</button></div>
+                <div class="text-center"><em style="font-size: small">Not Registered? </em><a href="./signup.html"
+                        class="forgot"> Sign Up</a></div>
+            </form>
+        </div>
+
+        <!-- HOME PAGE -->
+        <div id="content">
+
+            <!-- HEADER WITH CRUMB BAR -->
+            <nav class="navbar navbar-dark fixed-top">
+                <button class="navbar-toggler nav-button custom-toggler open-sidebar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon" style="color: white;"></span>
+                    <span class="navbar-text">BizNet</span>
+                    <span><i class="fa fa-spinner fa-spin" style="font-size:24px;"></i></span>
+                </button>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button class="btn form-control navbar-text" id="menuSearch" onclick="animateSearchMenu()">
+                            <i class="fa fa-lg fa-search"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- SEARCH MENU -->
+            <div class="fixed-top" style="top: 65px; z-index: 9;">
+                <div class="card shadow-nohover arrow_box" id="searchMenu" style="display: none;">
+                    <form method="POST" enctype="text/plain">
+                        <div class="card-header bg-white" style="padding: 10px;">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" name="searchField" id="searchField"
+                                    placeholder="Type here">
+                                <button type="button" class="form-control bg-primary" style="max-width: 60px;"><i
+                                        class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body bg-white" style="padding: 10px;">
+                            Search business by:
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons" style="z-index: 0;">
+                                <label class="btn btn-light active">
+                                    <input type="radio" name="produceType" id="searchType0" value="0" autocomplete="off"
+                                        checked> Name
+                                </label>
+                                <label class="btn btn-light">
+                                    <input type="radio" name="produceType" id="searchType1" value="1"
+                                        autocomplete="off"> Good/Service
+                                </label>
+                            </div>
+                            <br><br>
+                            Select the type of business:
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons" style="z-index: 0;">
+                                <label class="btn btn-light active">
+                                    <input type="radio" name="produceType" id="produceType0" value="0"
+                                        autocomplete="off" checked> Goods
+                                </label>
+                                <label class="btn btn-light">
+                                    <input type="radio" name="produceType" id="produceType1" value="1"
+                                        autocomplete="off"> Services
+                                </label>
+                                <label class="btn btn-light">
+                                    <input type="radio" name="produceType" id="produceType2" value="2"
+                                        autocomplete="off"> Both
+                                </label>
+                            </div>
+                            <br><br>
+                            Office/Shop status:
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons" style="z-index: 0;">
+                                <label class="btn btn-light">
+                                    <input type="radio" name="status" id="status0" value="0" autocomplete="off" checked>
+                                    Open
+                                </label>
+                                <label class="btn btn-light">
+                                    <input type="radio" name="status" id="status1" value="1" autocomplete="off"> Closed
+                                </label>
+                                <label class="btn btn-light active">
+                                    <input type="radio" name="status" id="status2" value="2" autocomplete="off"> Both
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- LIST HEADING -->
+            <div class="fixed-top" style="z-index: 8;">
+                <label class="form-control" id="listHeading"><span class="badge badge-info">Nearby
+                        Businesses</span></label>
+            </div>
+
+            <!-- LIST CONTAINER -->
+            <div class="jumbotron d-flex flex-wrap justify-content-center bg-white" id="listContainer">
+
+                <!-- LIST ITEM -->
+                <!-- All Items get here-->
+
+
+            </div>
+
+        </div>
+    </div>
+    <button id="butInstall" aria-label="Install" hidden></button>
+
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("/service-worker.js").then(reg => {
+                    //console.log("Service worker registered.", reg);
+                });
+            });
+        }
+    </script>
+    <script src="/scripts/app.js"></script>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="./scripts/script.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="./scripts/custom_script.js"></script>
+    <script src="./scripts/jquery.touchSwipe.js"></script>
+    <script src="./scripts/install.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-storage.js"></script>
+    <script src="./scripts/db.js"></script>
+
+
+</body>
+
+</html>
